@@ -6,15 +6,14 @@ const CardList = ({ robots }) => {
 
 
     return (
-        <section>
-            <div>
-                {
-                    robots.map((user, id) => {
-                        return <Card key={id} id={user.id} name={user.name} email={user.email} />
-                    })
-                }
-            </div>
-        </section>
+
+        <div className='tc bg-green'>
+            {
+                robots.map((user, id) => {
+                    return <Card key={id} id={user.id} name={user.name} email={user.email} />
+                })
+            }
+        </div>
     );
 }
 
