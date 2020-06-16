@@ -3,6 +3,7 @@ import CardList from './CardList'
 //import { robots } from './robots'
 import SearchBox from './SearchBox'
 import Scroll from './Scroll'
+import ErrorBoundry from './ErrorBoundry'
 
 
 class App extends Component {
@@ -41,7 +42,9 @@ class App extends Component {
                 </header>
                 <section>
                     <Scroll>
-                        <CardList robots={robotsFiltered} />
+                        <ErrorBoundry>
+                            <CardList robots={robotsFiltered} />
+                        </ErrorBoundry>
                     </Scroll>
                 </section>
             </Fragment>
