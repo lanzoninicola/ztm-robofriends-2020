@@ -1,20 +1,28 @@
 import React, { Component, Fragment } from 'react'
 import CardList from './CardList'
-import { robots } from './robots'
+//import { robots } from './robots'
 import SearchBox from './SearchBox'
+import Scroll from './Scroll'
 
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
-            robots: robots,
+            robots: [],
             searchValue: ''
         }
     }
 
     onSearchChange = (event) => {
         this.setState({ searchValue: event.target.value })
+    }
+
+    async componentDidMount() {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
+        const json = await response.json();
+
+        this.setState({ robots: json });
     }
 
     render() {
@@ -32,7 +40,9 @@ class App extends Component {
                     <SearchBox onSearchChange={this.onSearchChange} />
                 </header>
                 <section>
-                    <CardList robots={robotsFiltered} />
+                    <Scroll>
+                        <CardList robots={robotsFiltered} />
+                    </Scroll>
                 </section>
             </Fragment>
         )
