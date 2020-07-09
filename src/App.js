@@ -33,22 +33,22 @@ class App extends Component {
         }
         )
 
-
-        return (
-            <Fragment>
-                <header className='tc bg-green ma0 pa2'>
-                    <h1 className='f1 helvetica white'>ROBOFRIENDS</h1>
-                    <SearchBox onSearchChange={this.onSearchChange} />
-                </header>
-                <section>
-                    <Scroll>
-                        <ErrorBoundry>
-                            <CardList robots={robotsFiltered} />
-                        </ErrorBoundry>
-                    </Scroll>
-                </section>
-            </Fragment>
-        )
+        return !this.state.robots ? <h1>Loading....</h1>
+            : (
+                <Fragment>
+                    <header className='tc bg-green ma0 pa2'>
+                        <h1 className='f1 helvetica white'>ROBOFRIENDS</h1>
+                        <SearchBox onSearchChange={this.onSearchChange} />
+                    </header>
+                    <section>
+                        <Scroll>
+                            <ErrorBoundry>
+                                <CardList robots={robotsFiltered} />
+                            </ErrorBoundry>
+                        </Scroll>
+                    </section>
+                </Fragment>
+            )
     }
 
 }
