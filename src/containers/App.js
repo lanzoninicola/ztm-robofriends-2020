@@ -5,6 +5,7 @@ import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { connect } from 'react-redux';
+import './App.css'
 
 import { setSearchField, fetchRobots } from '../actions'
 
@@ -27,7 +28,7 @@ class App extends Component {
             : (
                 <Fragment>
                     <header className='tc bg-green ma0 pa2'>
-                        <h1 className='f1 helvetica white'>ROBOFRIENDS</h1>
+                        <h1>ROBOFRIENDS</h1>
                         <SearchBox onSearchChange={onSearchChange} />
                     </header>
                     <section id="robotsSection" className='bg-green' style={{ height: '100vh' }}>
