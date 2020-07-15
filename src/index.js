@@ -11,8 +11,15 @@ import logger from 'redux-logger';
 import 'tachyons'
 
 
+const middleware = [thunk]
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(logger)
+}
+
+
 const rootReducer = combineReducers({ setSearchField, robotsState });
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+
+const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <React.StrictMode>
