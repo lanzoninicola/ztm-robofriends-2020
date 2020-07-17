@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CardList from '../components/CardList'
 //import { robots } from './robots'
-import CounterButton from '../containers/CounterBotton'
+import CounterButton from '../containers/CounterButton'
 import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundary from '../components/ErrorBoundary'
