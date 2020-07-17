@@ -5,6 +5,13 @@
     src: local('SEGA LOGO FONT'), url('../asset/SEGA.woff') format('woff');
 }
 
+header {
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+} 
+
 h1 {
     font-family: 'SEGA LOGO FONT';
     font-weight: 200;

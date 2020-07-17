@@ -16,7 +16,6 @@ if (process.env.NODE_ENV !== 'production') {
   middleware.push(logger)
 }
 
-
 const rootReducer = combineReducers({ setSearchField, robotsState });
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));

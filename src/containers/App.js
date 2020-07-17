@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CardList from '../components/CardList'
 //import { robots } from './robots'
+import CounterButton from '../containers/CounterBotton'
 import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -8,6 +9,7 @@ import { connect } from 'react-redux';
 import './App.css'
 
 import { setSearchField, fetchRobots } from '../actions'
+
 
 class App extends Component {
 
@@ -17,7 +19,7 @@ class App extends Component {
 
     render() {
 
-        const { onSearchChange, searchValue, robots, isPending, error } = this.props;
+        const { onSearchChange, searchValue, robots, isPending } = this.props;
 
         const robotsFiltered = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -29,6 +31,7 @@ class App extends Component {
                 <Fragment>
                     <header className='tc bg-green ma0 pa2'>
                         <h1>ROBOFRIENDS</h1>
+                        <CounterButton />
                         <SearchBox onSearchChange={onSearchChange} />
                     </header>
                     <section id="robotsSection" className='bg-green' style={{ height: '100vh' }}>
@@ -45,7 +48,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps - ', state)
+    // console.log('mapStateToProps - ', state)
     return {
         searchValue: state.setSearchField.searchValue,
         robots: state.robotsState.robots,
