@@ -19,6 +19,8 @@ class App extends Component {
 
     render() {
 
+        console.log(this.props)
+
         const { onSearchChange, searchValue, robots, isPending } = this.props;
 
         const robotsFiltered = robots.filter(robot => {
